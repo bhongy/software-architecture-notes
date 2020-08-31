@@ -45,8 +45,9 @@ Different aspects that impact a business' success
 
 ## Properties
 
-- Most changes must only impact one service (high-cohesion and loose-coupling).
+- Most changes only impact one service (high-cohesion and loose-coupling) (independent deployment).
   - If you frequently have to coordinate multiple services to deploy changes, you have a distributed monolith.
+  - Components that changes for the same reason should be packaged together.
 
 ## Benefits
 
