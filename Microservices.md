@@ -23,7 +23,6 @@ API Gateway also solves:
 > Think about evolving APIs
 
 ## Messaging communication
-
 - benefits: decouple client <> services i.e. if the service is down (temporarily) the broker can buffer the messages without affecting the client
 - drawbacks:
   - add complexity to the system (high-availability service, message broker, to maintain)
@@ -31,3 +30,9 @@ API Gateway also solves:
   - not suitable (hard) to implement req-res API
   - error handling is harder
   - result aggregation (from multiple stream) is harder (you never know if the message will arrive)
+  
+## Service Registration
+- register on startup
+- unregister on shutdown
+- unregister on crash
+- unregister on unhealthy (e.g. running but unable to handle load)
