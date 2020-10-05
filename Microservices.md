@@ -73,3 +73,7 @@ API Gateway also solves:
   - the service expose APIs (not the database)
   - the service owns the _data_
   - the service is responsible for its data access performance (throughput, qps, write/read heavy, etc)
+
+## Benefits
+- avoid the complexity arising from unintentional and inappropriate coupling between components that should not know about each other
+  - from: [Martin Fowler Blog: Micro Frontend](https://martinfowler.com/articles/micro-frontends.html)
