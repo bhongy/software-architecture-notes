@@ -51,17 +51,22 @@ Different aspects that impact a business' success
 
 ## Benefits
 
+- Autonomy -> Fast pace of changes (most important)
+  - Services can be deployed _independently_ -> can deploy a new version of one service without changing other services
+  - Lower risk when deploy -> frequent and faster changes
+  - Teams can develop in parallel -> reduced need for coordination
 - Smaller, more contained code -> easier to understand and maintain -> more productive developers
   - Easier to onboard new members -> flexibility in moving developers around to new teams
   - More energy spent solving business problems (rather than maintaining complex mental model)
   - Safer changes -> confidence -> faster changes
   - The architecture discourage unintented coupling
-- Leverage new technologies (frameworks, programming languages)
+- Allow independent scaling (cpu-bound services, memory-bound services)
+- Adopt new technologies faster (frameworks, programming languages)
+  - Easier and safer to experiment new technologies
   - Reduce effort in undiffirentiated heavy-lifting
   - Being more productive
 - Fast to build and deploy (or it is easier to optimize)
 - Fast startup time
-- Teams can develop in parallel -> reduced need for coordination
 - Fault isolation
   - infrastructure could fail for a set of services but part of the system could still be working
   - avoid cascading failure
