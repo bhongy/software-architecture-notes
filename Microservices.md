@@ -66,6 +66,12 @@ API Gateway also solves:
 - graph database
 - blob storage
 
+## Automation
+- API-driven machine provisioning - ability to provision isolated operating systems on-demand using an API
+  - Declarative environment provisioning (e.g. Terraform)
+- API-driven os configuration (Ansible, Chef, Puppet)
+- CI/CD (build, test, container image creation, deploy)
+
 ## Notes
 - database per service
   - a service owns its database(s)
@@ -73,6 +79,16 @@ API Gateway also solves:
   - the service expose APIs (not the database)
   - the service owns the _data_
   - the service is responsible for its data access performance (throughput, qps, write/read heavy, etc)
+- design services based on business processes/workflows i.e. capabilities (e.g. place an order) not entities (e.g. customer)
+
+## Common Design Characteristics
+- one service per container/vm -> scale independently
+- communicate over APIs or messages over shared data/db
+  - sharing db creates high-degree of tight coupling (all internal is public) and severely damage ability for services to evolve independently (speed)
+- a service is owned entirely by a single team (never multiple teams own parts of a service)
+  - autonomy -> reduce a need of coordination among teams (release in lock-step) -> conway's law
+  - a sign of high-cohesion, loose coupling
+- service boundaries are defined around business domains (bounded contexts) rather than technical boundaries like database vs APIs, etc.
 
 ## Benefits
 - avoid the complexity arising from unintentional and inappropriate coupling between components that should not know about each other
