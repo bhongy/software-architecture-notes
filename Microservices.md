@@ -72,13 +72,24 @@ API Gateway also solves:
 - API-driven os configuration (Ansible, Chef, Puppet)
 - CI/CD (build, test, container image creation, deploy)
 
+## Database per service
+- a service owns its database(s)
+- the database is treated as an implementation detail of the service
+- the service expose APIs (not the database)
+- the service owns the _data_
+- the service is responsible for its data access performance (throughput, qps, write/read heavy, etc)
+- separate table, schema (rather than the database server) can be an intermediate compromised (lose independent scalability) as long as there is a strong barrier to make it impossible for a service to access another service's database
+- benefits:
+  - ensure that the services are loosely coupled and API is the only way to expose public interfaces
+  - each service can use the type of database that is best suited to its needs (SQL, NoSQL, Graph DB)
+  - each service can scale read/write capabilities based on its needs
+- concerns:
+  - difficult to implement business transactions that span multiple services (bad design around bounded context exacerbate this problem)
+  - implementing queries that join data that is now in multiple databases is challenging
+  - inconsistent database security across services
+  - requires know-how in multiple database technologies
+
 ## Notes
-- database per service
-  - a service owns its database(s)
-  - the database is treated as an implementation detail of the service
-  - the service expose APIs (not the database)
-  - the service owns the _data_
-  - the service is responsible for its data access performance (throughput, qps, write/read heavy, etc)
 - design services based on business processes/workflows i.e. capabilities (e.g. place an order) not entities (e.g. customer)
 
 ## Common Design Characteristics
